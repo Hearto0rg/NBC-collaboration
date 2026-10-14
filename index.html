@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewBridge Community - Коллаборации</title>
+    <link rel="shortcut icon" href="./img/fav.png" type="image/x-icon">
+    
+    <!-- Подключение шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --olive-dark: #2a342a;      /* Темно-оливковый фон всей страницы */
+            --olive-medium: #3d4a3c;    /* Оливковый для цитат и деталей */
+            --olive-light: #526150;     /* Оливковый акцент */
+            --milk-yellow: #f4ecd8;     /* Основной цвет карточек */
+            --president-yellow: #ffdf84; /* Яркий молочно-желтый цвет */
+            --gold: #c5a880;            /* Золотая рамка */
+            --gold-light: #dfcaa8;
+            --milk-light: #f5f2eb;
+            --text-dark: #1a221a;       /* Темный оливково-черный для текста */
+            --badge-bg: #8c2a2a;        /* Красный акцент для статуса non-refundable */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--olive-dark);
+            color: var(--milk-light);
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.2rem;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Декоративная рамка */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 15px; left: 15px; right: 15px; bottom: 15px;
+            border: 1px solid rgba(197, 168, 128, 0.4);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Навигация */
+        header {
+            background-color: var(--olive-dark);
+            border-bottom: 2px solid var(--gold);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-text {
+            font-family: "Instrument Serif", serif;
+            color: var(--milk-light);
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--milk-light);
+            text-decoration: none;
+            font-family: "Instrument Serif", serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .back-btn-desktop {
+            border: 1px solid var(--gold);
+            padding: 6px 14px;
+            border-radius: 8px;
+            background: rgba(197, 168, 128, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn-desktop:hover {
+            background: var(--gold);
+            color: var(--olive-dark) !important;
+        }
+
+        .burger-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--milk-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 102;
+        }
+
+        /* Главный экран (Hero) */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(42, 52, 42, 0.8) 0%, rgba(61, 74, 60, 0.9) 100%);
+            border-bottom: 1px solid rgba(197, 168, 128, 0.3);
+        }
+
+        .hero h1 {
+            font-family: "Instrument Serif", serif;
+            font-size: 3.5rem;
+            color: var(--president-yellow);
+            margin-bottom: 5px;
+        }
+
+        .hero p {
+            font-family: "Instrument Serif", serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+        }
+
+        /* Секция проектов коллаборации */
+        .partners-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            font-size: 2.2rem;
+            color: #f3ede2;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        /* Карточка большого проекта */
+        .featured-project-card {
+            background-color: var(--milk-yellow);
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-header-img {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .project-content {
+            padding: 35px 40px;
+            color: var(--text-dark);
+        }
+
+        .project-badge {
+            display: inline-block;
+            background-color: var(--olive-medium);
+            color: var(--president-yellow);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .project-subtitle {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.35rem;
+            color: var(--olive-medium);
+            margin-bottom: 15px;
+            border-left: 3px solid var(--gold);
+            padding-left: 15px;
+        }
+
+        .preview-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: var(--olive-medium);
+        }
+
+        /* Кнопка "Подробнее" (Toggle Button) */
+        .toggle-details-btn {
+            background-color: var(--olive-medium);
+            color: var(--president-yellow);
+            border: 1px solid var(--gold);
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .toggle-details-btn:hover {
+            background-color: var(--olive-dark);
+        }
+
+        /* Блок с деталями, который изначально скрыт */
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .collapsible-content.open {
+            max-height: 2000px; /* Достаточно большое значение для плавной анимации раскрытия */
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 25px;
+            border-top: 1px dashed var(--gold);
+            padding-top: 25px;
+        }
+
+        .info-block h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .program-list {
+            list-style: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .program-list li {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .program-list li::before {
+            content: '🔸';
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        .details-list {
+            list-style: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .price-box {
+            background-color: rgba(61, 74, 60, 0.08);
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--olive-dark);
+        }
+
+        .non-refundable {
+            color: var(--badge-bg);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .cta-box {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--gold);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .cta-btn {
+            background-color: var(--olive-dark);
+            color: var(--president-yellow);
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--gold);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--olive-medium);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .important-note {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem;
+            color: var(--badge-bg);
+            font-weight: 600;
+        }
+
+        /* Футер */
+        footer {
+            background-color: var(--olive-dark);
+            color: var(--milk-light);
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .footer-socials {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-socials a {
+            color: var(--gold);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--milk-light);
+        }
+
+        .footer-motto {
+            font-family: "Instrument Serif", serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--gold-light);
+            margin-top: 10px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 900px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .burger-btn {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                height: 100vh;
+                background-color: var(--olive-dark);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 25px;
+                transition: right 0.4s ease-in-out;
+                border-left: 2px solid var(--gold);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+                z-index: 101;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav a {
+                font-size: 1.3rem;
+            }
+
+            .project-content {
+                padding: 25px 20px;
+            }
+
+            .project-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <a href="b1.html" style="text-decoration: none;">
+                    <div class="logo-text">NEWBRIDGE</div>
+                </a>
+            </div>
+
+            <!-- Кнопка бургер-меню -->
+            <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="b31u.html" class="nav-link">КОМАНДА</a></li>
+                    <li><a href="b1.html#events" class="nav-link">СОБЫТИЯ</a></li>
+                    <li><a href="partners.html" class="nav-link" style="color: var(--gold);">КОЛЛАБОРАЦИИ</a></li>
+                    <li><a href="b1.html" class="nav-link back-btn-desktop"><i class="fas fa-arrow-left"></i> Main</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный блок -->
+    <section class="hero">
+        <h1>Коллаборации</h1>
+        <p>Совместные проекты NewBridge Community и партнеров</p>
+    </section>
+
+    <!-- Секция Коллабораций -->
+    <section class="partners-container">
+        <h2 class="section-title">Первая Коллаборация</h2>
+
+        <!-- Проект: Trip To Samarqand -->
+        <div class="featured-project-card">
+            <!-- Изображение обложки анонса -->
+            <img src="./img/image8.png" alt="NewBridge x JIDU Yoshlar Ittifoqi" class="project-header-img">
+            
+            <div class="project-content">
+                <span class="project-badge">NewBridge Club × JIDU Yoshlar Ittifoqi</span>
+                <h3 class="project-title">1-ый Проект: Trip To Samarqand</h3>
+                <p class="project-subtitle">
+                    «O‘zbekiston Respublikasi Prezidentining PQ-3514-sonli qarori ijrosini ta’minlash hamda ichki turizmni rivojlantirish maqsadida qadimiy va betakror Samarqand shahriga 1 kunlik sayohat va ziyorat!»
+                </p>
+
+                <p class="preview-text">
+                    Bir kun davomida Samarqandning tarixiy obidalari bilan yaqindan tanishish, yangi taassurotlar olish va do‘stlar bilan mazmunli vaqt o‘tkazish imkoniyati!
+                </p>
+
+                <!-- Кнопка «Подробнее» -->
+                <button class="toggle-details-btn" id="toggleDetailsBtn">
+                    <i class="fas fa-chevron-down" id="toggleIcon"></i> Batafsil ma'lumot
+                </button>
+
+                <!-- Скрытый блок с подробностями -->
+                <div class="collapsible-content" id="collapsibleContent">
+                    <div class="project-grid">
+                        <!-- Левая колонка: Программа тура -->
+                        <div class="info-block">
+                            <h4><i class="fas fa-map-marked-alt" style="color: var(--olive-light);"></i> Tur Dasturi</h4>
+                            <ul class="program-list">
+                                <li>Al-Buxoriy majmuasi</li>
+                                <li>Shoxi Zinda yodgorligi</li>
+                                <li>Registon Maydoni</li>
+                                <li>Go'ri amir maqbarasi</li>
+                                <li>Islom Karimov Qabri</li>
+                                <li>Bibixonim masjidi</li>
+                                <li>Siyob bozori</li>
+                            </ul>
+                        </div>
+
+                        <!-- Правая колонка: Организационные детали -->
+                        <div class="info-block">
+                            <h4><i class="fas fa-info-circle" style="color: var(--olive-light);"></i> Sayohat tafsilotlari</h4>
+                            <ul class="details-list">
+                                <li><strong>🗓 Sayohat sanasi:</strong> 18-oktabr</li>
+                                <li><strong>⏳ Toshkentdan jo‘nab ketish:</strong> 04:00</li>
+                                <li><strong>⏳ Toshkentga qaytish:</strong> 22:00</li>
+                                <li><strong>📍 Ketish joyi:</strong> Jahon iqtisodiyoti va diplomatiya universiteti</li>
+                            </ul>
+
+                            <!-- Цена и в стоимость входит -->
+                            <div class="price-box">
+                                <div>
+                                    <span style="font-size: 0.9rem; color: var(--olive-medium);">Sayohat to'lovi:</span>
+                                    <div class="price-amount">185.000 so’m <span class="non-refundable">(Non refundable!)</span></div>
+                                </div>
+                                <hr style="border: none; border-top: 1px solid var(--gold); margin: 10px 0;">
+                                <div style="font-size: 0.85rem; line-height: 1.6;">
+                                    <strong>✅ To'lov quyidagilarni o‘z ichiga oladi:</strong><br>
+                                    🚌 Qulay transfer | 🍩 Ichimliklar va shirinliklar<br>
+                                    🗂 To‘liq turistik tashkilotchilik xizmati<br>
+                                    🎟 Tarixiy obidalarga kirish to‘lovlari<br>
+                                    ⛈ Professional gid xizmati | 📸 Fotosessiya<br>
+                                    🪄 Do‘stona va samimiy muhit
+                                </div>
+                                <hr style="border: none; border-top: 1px dashed var(--gold); margin: 10px 0;">
+                                <div style="font-size: 0.82rem; color: var(--badge-bg);">
+                                    <strong>❗️ Narxga kirmaydi:</strong> 🍽 Ovqatlanish xarajatlari, ❌ Shaxsiy xarajatlar.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Футер карточки (Кнопка и Лимиты) -->
+                    <div class="cta-box">
+                        <div>
+                            <div class="important-note">⏺ Joylar soni cheklangan!</div>
+                            <div class="important-note">⏺ Chiptalar qaytarilmaydi!</div>
+                        </div>
+                        <a href="https://t.me/n_isajonov" target="_blank" class="cta-btn">
+                            <i class="fab fa-telegram"></i> Ro‘yxatdan o‘tish (@n_isajonov)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Футер страницы -->
+    <footer>
+        <div class="logo-text" style="margin-bottom: 10px;">NEWBRIDGE</div>
+        <p>email@gmail.com | 100007, Oʻzbekiston, Toshkent, Mustaqillik shoh koʻchasi, 54</p>
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/NewBridge_Official" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+        <p class="footer-motto">We unite people of different backgrounds</p>
+    </footer>
+
+    <!-- Скрипт для бургер-меню и раскрытия деталей -->
+    <script>
+        // Бургер-меню
+        const burgerBtn = document.getElementById('burgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const burgerIcon = burgerBtn.querySelector('i');
+
+        burgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            if (navMenu.classList.contains('active')) {
+                burgerIcon.classList.remove('fa-bars');
+                burgerIcon.classList.add('fa-times');
+            } else {
+                burgerIcon.classList.remove('fa-times');
+                burgerIcon.classList.add('fa-bars');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                burgerIcon.classList.remove('fa-times');
+                burgerIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Кнопка «Batafsil ma'lumot» (Подробнее)
+        const toggleDetailsBtn = document.getElementById('toggleDetailsBtn');
+        const collapsibleContent = document.getElementById('collapsibleContent');
+        const toggleIcon = document.getElementById('toggleIcon');
+
+        toggleDetailsBtn.addEventListener('click', () => {
+            collapsibleContent.classList.toggle('open');
+            if (collapsibleContent.classList.contains('open')) {
+                toggleDetailsBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Yшириш (Скрыть)';
+            } else {
+                toggleDetailsBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Batafsil ma\'lumot';
+            }
+        });
+    </script>
+
+</body>
+</html>
