@@ -141,6 +141,7 @@
             font-size: 3.5rem;
             color: var(--president-yellow);
             margin-bottom: 5px;
+            word-break: break-word;
         }
 
         .hero p {
@@ -165,6 +166,7 @@
             color: #f3ede2;
             margin-bottom: 40px;
             letter-spacing: 1px;
+            word-break: break-word;
         }
 
         /* Карточка большого проекта */
@@ -261,7 +263,7 @@
         }
 
         .collapsible-content.open {
-            max-height: 2000px; /* Достаточно большое значение для плавной анимации раскрытия */
+            max-height: 2000px;
         }
 
         .project-grid {
@@ -415,6 +417,10 @@
         }
 
         @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.6rem; /* Немного уменьшили заголовок для телефонов */
+            }
+
             .burger-btn {
                 display: block;
             }
@@ -475,7 +481,7 @@
                     <li><a href="https://nbc-team.pages.dev/" class="nav-link">КОМАНДА</a></li>
                     <li><a href="https://new-bridge-community.pages.dev/#events" class="nav-link">СОБЫТИЯ</a></li>
                     <li><a href="https://nbc-collaboration.pages.dev/" class="nav-link" style="color: var(--gold);">КОЛЛАБОРАЦИИ</a></li>
-                    <li><a href="https://new-bridge-community.pages.dev/" class="nav-link back-btn-desktop"><i class="fas fa-arrow-left"></i> Main</a></li>
+                    <li><a href="b1.html" class="nav-link "><i class="fas fa-arrow-left"></i> Main</a></li>
                 </ul>
             </nav>
         </div>
