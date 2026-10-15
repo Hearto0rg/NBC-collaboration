@@ -88,7 +88,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 25px;
             align-items: center;
         }
 
@@ -105,17 +105,23 @@
             color: var(--gold);
         }
 
-        .back-btn-desktop {
+        /* Кнопка переключения языка */
+        .lang-switch {
+            background: transparent;
             border: 1px solid var(--gold);
-            padding: 6px 14px;
-            border-radius: 8px;
-            background: rgba(197, 168, 128, 0.1);
+            color: var(--milk-light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
 
-        .back-btn-desktop:hover {
-            background: var(--gold);
-            color: var(--olive-dark) !important;
+        .lang-switch:hover {
+            background-color: var(--gold);
+            color: var(--olive-dark);
         }
 
         .burger-btn {
@@ -418,7 +424,7 @@
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.6rem; /* Немного уменьшили заголовок для телефонов */
+                font-size: 2.6rem;
             }
 
             .burger-btn {
@@ -478,10 +484,14 @@
 
             <nav>
                 <ul id="navMenu">
-                    <li><a href="https://nbc-team.pages.dev/" class="nav-link">КОМАНДА</a></li>
-                    <li><a href="https://new-bridge-community.pages.dev/#events" class="nav-link">СОБЫТИЯ</a></li>
-                    <li><a href="https://nbc-collaboration.pages.dev/" class="nav-link" style="color: var(--gold);">КОЛЛАБОРАЦИИ</a></li>
-                    <li><a href="https://new-bridge-community.pages.dev/" class="nav-link "><i class="fas fa-arrow-left"></i> Main</a></li>
+                    <li><button class="lang-switch" id="langBtn">EN</button></li>
+                    <li><a href="https://nbc-team.pages.dev/" class="nav-link" data-ru="КОМАНДА" data-en="TEAM">КОМАНДА</a></li>
+                    <li><a href="https://new-bridge-community.pages.dev/#events" class="nav-link" data-ru="СОБЫТИЯ" data-en="EVENTS">СОБЫТИЯ</a></li>
+                    <li><a href="https://nbc-collaboration.pages.dev/" class="nav-link" style="color: var(--gold);" data-ru="КОЛЛАБОРАЦИИ" data-en="COLLABORATIONS">КОЛЛАБОРАЦИИ</a></li>
+                    <li><a href="https://nbc-collaboration.pages.dev/" class="nav-link"  data-ru="Наша Жизнь" data-en="Our Life">Наша Жизнь</a></li>
+
+                    <li><a href="https://new-bridge-community.pages.dev/" class="nav-link"><i class="fas fa-arrow-left"></i> <span data-ru="Главная" data-en="Main">Main</span></a></li>
+                    
                 </ul>
             </nav>
         </div>
@@ -489,13 +499,13 @@
 
     <!-- Главный блок -->
     <section class="hero">
-        <h1>Коллаборации</h1>
-        <p>Совместные проекты NewBridge Community и партнеров</p>
+        <h1 data-ru="Коллаборации" data-en="Collaborations">Коллаборации</h1>
+        <p data-ru="Совместные проекты NewBridge Community и партнеров" data-en="Joint projects of NewBridge Community and partners">Совместные проекты NewBridge Community и партнеров</p>
     </section>
 
     <!-- Секция Коллабораций -->
     <section class="partners-container">
-        <h2 class="section-title">Первая Коллаборация</h2>
+        <h2 class="section-title" data-ru="Первая Коллаборация" data-en="First Collaboration">Первая Коллаборация</h2>
 
         <!-- Проект: Trip To Samarqand -->
         <div class="featured-project-card">
@@ -504,18 +514,22 @@
             
             <div class="project-content">
                 <span class="project-badge">NewBridge Club × JIDU Yoshlar Ittifoqi</span>
-                <h3 class="project-title">1-ый Проект: Trip To Samarqand</h3>
-                <p class="project-subtitle">
+                <h3 class="project-title" data-ru="1-ый Проект: Поездка в Самарканд" data-en="1st Project: Trip To Samarqand">1-ый Проект: Trip To Samarqand</h3>
+                <p class="project-subtitle" 
+                   data-ru="«В целях обеспечения исполнения постановления Президента Республики Узбекистан ПП-3514 и развития внутреннего туризма — однодневная поездка и паломничество в древний и неповторимый Самарканд!»" 
+                   data-en="«In pursuance of the resolution of the President of the Republic of Uzbekistan PQ-3514 and to develop domestic tourism — a 1-day trip and pilgrimage to the ancient and unique city of Samarkand!»">
                     «O‘zbekiston Respublikasi Prezidentining PQ-3514-sonli qarori ijrosini ta’minlash hamda ichki turizmni rivojlantirish maqsadida qadimiy va betakror Samarqand shahriga 1 kunlik sayohat va ziyorat!»
                 </p>
 
-                <p class="preview-text">
+                <p class="preview-text" 
+                   data-ru="Уникальная возможность в течение одного дня познакомиться с историческими памятниками Самарканда, получить яркие впечатления и провести время с пользой в кругу друзей!" 
+                   data-en="An opportunity to get closely acquainted with the historical monuments of Samarkand, gain new impressions, and spend meaningful time with friends within a single day!">
                     Bir kun davomida Samarqandning tarixiy obidalari bilan yaqindan tanishish, yangi taassurotlar olish va do‘stlar bilan mazmunli vaqt o‘tkazish imkoniyati!
                 </p>
 
                 <!-- Кнопка «Подробнее» -->
                 <button class="toggle-details-btn" id="toggleDetailsBtn">
-                    <i class="fas fa-chevron-down" id="toggleIcon"></i> Batafsil ma'lumot
+                    <i class="fas fa-chevron-down" id="toggleIcon"></i> <span data-ru="Подробная информация" data-en="Detailed Information">Batafsil ma'lumot</span>
                 </button>
 
                 <!-- Скрытый блок с подробностями -->
@@ -523,46 +537,46 @@
                     <div class="project-grid">
                         <!-- Левая колонка: Программа тура -->
                         <div class="info-block">
-                            <h4><i class="fas fa-map-marked-alt" style="color: var(--olive-light);"></i> Tur Dasturi</h4>
+                            <h4><i class="fas fa-map-marked-alt" style="color: var(--olive-light);"></i> <span data-ru="Программа тура" data-en="Tour Program">Tur Dasturi</span></h4>
                             <ul class="program-list">
-                                <li>Al-Buxoriy majmuasi</li>
-                                <li>Shoxi Zinda yodgorligi</li>
-                                <li>Registon Maydoni</li>
-                                <li>Go'ri amir maqbarasi</li>
-                                <li>Islom Karimov Qabri</li>
-                                <li>Bibixonim masjidi</li>
-                                <li>Siyob bozori</li>
+                                <li data-ru="Комплекс Имама аль-Бухари" data-en="Imam Al-Bukhari Complex">Al-Buxoriy majmuasi</li>
+                                <li data-ru="Мемориальный комплекс Шахи Зинда" data-en="Shah-i Zinda Ensemble">Shoxi Zinda yodgorligi</li>
+                                <li data-ru="Площадь Регистан" data-en="Registan Square">Registon Maydoni</li>
+                                <li data-ru="Мавзолей Гур-Эмир" data-en="Gur-e-Amir Mausoleum">Go'ri amir maqbarasi</li>
+                                <li data-ru="Могила Ислама Каримова" data-en="Islam Karimov's Grave">Islom Karimov Qabri</li>
+                                <li data-ru="Мечеть Биби-Ханум" data-en="Bibi-Khanym Mosque">Bibixonim masjidi</li>
+                                <li data-ru="Базар Сиаб" data-en="Siyob Bazaar">Siyob bozori</li>
                             </ul>
                         </div>
 
                         <!-- Правая колонка: Организационные детали -->
                         <div class="info-block">
-                            <h4><i class="fas fa-info-circle" style="color: var(--olive-light);"></i> Sayohat tafsilotlari</h4>
+                            <h4><i class="fas fa-info-circle" style="color: var(--olive-light);"></i> <span data-ru="Детали поездки" data-en="Trip Details">Sayohat tafsilotlari</span></h4>
                             <ul class="details-list">
-                                <li><strong>🗓 Sayohat sanasi:</strong> 18-oktabr</li>
-                                <li><strong>⏳ Toshkentdan jo‘nab ketish:</strong> 04:00</li>
-                                <li><strong>⏳ Toshkentga qaytish:</strong> 22:00</li>
-                                <li><strong>📍 Ketish joyi:</strong> Jahon iqtisodiyoti va diplomatiya universiteti</li>
+                                <li><strong data-ru="🗓 Дата поездки:" data-en="🗓 Trip Date:">🗓 Sayohat sanasi:</strong> <span data-ru="18 октября" data-en="October 18">18-oktabr</span></li>
+                                <li><strong data-ru="⏳ Отправление из Ташкента:" data-en="⏳ Departure from Tashkent:">⏳ Toshkentdan jo‘nab ketish:</strong> 04:00</li>
+                                <li><strong data-ru="⏳ Возвращение в Ташкент:" data-en="⏳ Return to Tashkent:">⏳ Toshkentga qaytish:</strong> 22:00</li>
+                                <li><strong data-ru="📍 Место отправления:" data-en="📍 Departure Point:">📍 Ketish joyi:</strong> <span data-ru="Университет мировой экономики и дипломатии (УМЭД)" data-en="University of World Economy and Diplomacy">Jahon iqtisodiyoti va diplomatiya universiteti</span></li>
                             </ul>
 
                             <!-- Цена и в стоимость входит -->
                             <div class="price-box">
                                 <div>
-                                    <span style="font-size: 0.9rem; color: var(--olive-medium);">Sayohat to'lovi:</span>
-                                    <div class="price-amount">185.000 so’m <span class="non-refundable">(Non refundable!)</span></div>
+                                    <span style="font-size: 0.9rem; color: var(--olive-medium);" data-ru="Стоимость поездки:" data-en="Trip Cost:">Sayohat to'lovi:</span>
+                                    <div class="price-amount">185.000 so’m <span class="non-refundable" data-ru="(Без возврата!)" data-en="(Non-refundable!)">(Non refundable!)</span></div>
                                 </div>
                                 <hr style="border: none; border-top: 1px solid var(--gold); margin: 10px 0;">
                                 <div style="font-size: 0.85rem; line-height: 1.6;">
-                                    <strong>✅ To'lov quyidagilarni o‘z ichiga oladi:</strong><br>
-                                    🚌 Qulay transfer | 🍩 Ichimliklar va shirinliklar<br>
-                                    🗂 To‘liq turistik tashkilotchilik xizmati<br>
-                                    🎟 Tarixiy obidalarga kirish to‘lovlari<br>
-                                    ⛈ Professional gid xizmati | 📸 Fotosessiya<br>
-                                    🪄 Do‘stona va samimiy muhit
+                                    <strong data-ru="✅ В стоимость входит:" data-en="✅ Included in price:">✅ To'lov quyidagilarni o‘z ichiga oladi:</strong><br>
+                                    <span data-ru="🚌 Комфортабельный трансфер | 🍩 Напитки и сладости" data-en="🚌 Comfortable transfer | 🍩 Drinks and sweets">🚌 Qulay transfer | 🍩 Ichimliklar va shirinliklar</span><br>
+                                    <span data-ru="🗂 Полные организационно-туристические услуги" data-en="🗂 Full tourist organization services">🗂 To‘liq turistik tashkilotchilik xizmati</span><br>
+                                    <span data-ru="🎟 Входные билеты на исторические объекты" data-en="🎟 Entrance tickets to historical sites">🎟 Tarixiy obidalarga kirish to‘lovlari</span><br>
+                                    <span data-ru="⛈ Услуги профессионального гида | 📸 Фотосессия" data-en="⛈ Professional guide services | 📸 Photoshoot">⛈ Professional gid xizmati | 📸 Fotosessiya</span><br>
+                                    <span data-ru="🪄 Дружелюбная и теплая атмосфера" data-en="🪄 Friendly and cozy atmosphere">🪄 Do‘stona va samimiy muhit</span>
                                 </div>
                                 <hr style="border: none; border-top: 1px dashed var(--gold); margin: 10px 0;">
-                                <div style="font-size: 0.82rem; color: var(--badge-bg);">
-                                    <strong>❗️ Narxga kirmaydi:</strong> 🍽 Ovqatlanish xarajatlari, ❌ Shaxsiy xarajatlar.
+                                <div style="font-size: 0.82rem; color: var(--badge-bg);" data-ru="❗️ Не входит в стоимость: 🍽 Расходы на питание, ❌ Личные расходы." data-en="❗️ Not included: 🍽 Meal expenses, ❌ Personal expenses.">
+                                    ❗️ Narxga kirmaydi: 🍽 Ovqatlanish xarajatlari, ❌ Shaxsiy xarajatlar.
                                 </div>
                             </div>
                         </div>
@@ -571,11 +585,11 @@
                     <!-- Футер карточки (Кнопка и Лимиты) -->
                     <div class="cta-box">
                         <div>
-                            <div class="important-note">⏺ Joylar soni cheklangan!</div>
-                            <div class="important-note">⏺ Chiptalar qaytarilmaydi!</div>
+                            <div class="important-note" data-ru="⏺ Количество мест ограничено!" data-en="⏺ Limited number of spots!">⏺ Joylar soni cheklangan!</div>
+                            <div class="important-note" data-ru="⏺ Билеты не возвращаются!" data-en="⏺ Tickets are non-refundable!">⏺ Chiptalar qaytarilmaydi!</div>
                         </div>
                         <a href="https://t.me/n_isajonov" target="_blank" class="cta-btn">
-                            <i class="fab fa-telegram"></i> Ro‘yxatdan o‘tish (@n_isajonov)
+                            <i class="fab fa-telegram"></i> <span data-ru="Зарегистрироваться (@n_isajonov)" data-en="Register (@n_isajonov)">Ro‘yxatdan o‘tish (@n_isajonov)</span>
                         </a>
                     </div>
                 </div>
@@ -588,7 +602,7 @@
     <!-- Футер страницы -->
     <footer>
         <div class="logo-text" style="margin-bottom: 10px;">NEWBRIDGE</div>
-        <p>newbridge@gmail.com | 100007, Oʻzbekiston, Toshkent, Mustaqillik shoh koʻchasi, 54</p>
+        <p data-ru="newbridge@gmail.com | 100007, Узбекистан, Ташкент, проспект Мустакиллик, 54" data-en="newbridge@gmail.com | 100007, Uzbekistan, Tashkent, Mustaqillik Avenue, 54">newbridge@gmail.com | 100007, Oʻzbekiston, Toshkent, Mustaqillik shoh koʻchasi, 54</p>
         <div class="footer-socials">
             <a href="https://instagram.com/newbridge.community?cplk=b3Bjcm1pZjA3eHky"><i class="fab fa-instagram"></i></a>
             <a href="https://t.me/NewBridge_Official_Cookie" target="_blank"><i class="fab fa-telegram"></i></a>
@@ -596,7 +610,7 @@
         <p class="footer-motto">We unite people of different backgrounds</p>
     </footer>
 
-    <!-- Скрипт для бургер-меню и раскрытия деталей -->
+    <!-- Скрипт для бургер-меню, раскрытия деталей и переключения языка -->
     <script>
         // Бургер-меню
         const burgerBtn = document.getElementById('burgerBtn');
@@ -630,10 +644,43 @@
 
         toggleDetailsBtn.addEventListener('click', () => {
             collapsibleContent.classList.toggle('open');
-            if (collapsibleContent.classList.contains('open')) {
-                toggleDetailsBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Yшириш (Скрыть)';
+            const isOpened = collapsibleContent.classList.contains('open');
+            const currentLang = document.documentElement.lang;
+
+            if (isOpened) {
+                toggleDetailsBtn.innerHTML = currentLang === 'ru' 
+                    ? '<i class="fas fa-chevron-up"></i> Скрыть' 
+                    : '<i class="fas fa-chevron-up"></i> Yшириш (Hide)';
             } else {
-                toggleDetailsBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Batafsil ma\'lumot';
+                toggleDetailsBtn.innerHTML = currentLang === 'ru'
+                    ? '<i class="fas fa-chevron-down"></i> Подробная информация'
+                    : '<i class="fas fa-chevron-down"></i> Batafsil ma\'lumot';
+            }
+        });
+
+        // Переключение языка RU / EN
+        const langBtn = document.getElementById('langBtn');
+        let currentLang = 'ru';
+
+        langBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'ru' ? 'en' : 'ru';
+            langBtn.textContent = currentLang === 'ru' ? 'EN' : 'RU';
+            document.documentElement.lang = currentLang;
+
+            document.querySelectorAll('[data-ru]').forEach(element => {
+                element.textContent = element.getAttribute(`data-${currentLang}`);
+            });
+
+            // Обновляем текст кнопки деталей в зависимости от открытого/закрытого состояния
+            const isOpened = collapsibleContent.classList.contains('open');
+            if (isOpened) {
+                toggleDetailsBtn.innerHTML = currentLang === 'ru' 
+                    ? '<i class="fas fa-chevron-up"></i> Скрыть' 
+                    : '<i class="fas fa-chevron-up"></i> Hide';
+            } else {
+                toggleDetailsBtn.innerHTML = currentLang === 'ru'
+                    ? '<i class="fas fa-chevron-down"></i> Подробная информация'
+                    : '<i class="fas fa-chevron-down"></i> Batafsil ma\'lumot';
             }
         });
     </script>
