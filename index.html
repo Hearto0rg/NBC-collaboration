@@ -269,7 +269,7 @@
         }
 
         .collapsible-content.open {
-            max-height: 2000px;
+            max-height: 2500px;
         }
 
         .project-grid {
@@ -488,9 +488,8 @@
                     <li><a href="https://nbc-team.pages.dev/" class="nav-link" data-ru="КОМАНДА" data-en="TEAM">КОМАНДА</a></li>
                     <li><a href="https://new-bridge-community.pages.dev/#events" class="nav-link" data-ru="СОБЫТИЯ" data-en="EVENTS">СОБЫТИЯ</a></li>
                     <li><a href="https://nbc-collaboration.pages.dev/" class="nav-link" style="color: var(--gold);" data-ru="КОЛЛАБОРАЦИИ" data-en="COLLABORATIONS">КОЛЛАБОРАЦИИ</a></li>
-                    <li><a href="https://nbc-collaboration.pages.dev/" class="nav-link"  data-ru="Наша Жизнь" data-en="Our Life">Наша Жизнь</a></li>
+                    <li><a href="https://nbc-collaboration.pages.dev/" class="nav-link" data-ru="Наша Жизнь" data-en="Our Life">Наша Жизнь</a></li>
                     <li><a href="https://new-bridge-community.pages.dev/" class="nav-link"><i class="fas fa-arrow-left"></i> <span data-ru="Main" data-en="Main">Main</span></a></li>
-                    
                 </ul>
             </nav>
         </div>
@@ -504,11 +503,12 @@
 
     <!-- Секция Коллабораций -->
     <section class="partners-container">
-        <h2 class="section-title" data-ru="Первая Коллаборация" data-en="First Collaboration">Первая Коллаборация</h2>
+        
+        <!-- 1-ОЕ СОБЫТИЕ -->
+        <h2 class="section-title" data-ru="Первая Коллаборация/Событие" data-en="First Collaboration/Event">Первая Коллаборация/Событие</h2>
 
-        <!-- Проект: Trip To Samarqand -->
+        <!-- Проект 1: Trip To Samarqand -->
         <div class="featured-project-card">
-            <!-- Изображение обложки анонса -->
             <img src="./img/image8.png" alt="NewBridge x JIDU Yoshlar Ittifoqi" class="project-header-img">
             
             <div class="project-content">
@@ -527,12 +527,12 @@
                 </p>
 
                 <!-- Кнопка «Подробнее» -->
-                <button class="toggle-details-btn" id="toggleDetailsBtn">
-                    <i class="fas fa-chevron-down" id="toggleIcon"></i> <span data-ru="Подробная информация" data-en="Detailed Information">Подробная информация</span>
+                <button class="toggle-details-btn" data-target="collapsibleContent1">
+                    <i class="fas fa-chevron-down toggle-icon"></i> <span data-ru="Подробная информация" data-en="Detailed Information">Подробная информация</span>
                 </button>
 
-                <!-- Скрытый блок с подробностями -->
-                <div class="collapsible-content" id="collapsibleContent">
+                <!-- Скрытый блок с подробностями 1 -->
+                <div class="collapsible-content" id="collapsibleContent1">
                     <div class="project-grid">
                         <!-- Левая колонка: Программа тура -->
                         <div class="info-block">
@@ -581,7 +581,7 @@
                         </div>
                     </div>
 
-                    <!-- Футер карточки (Кнопка и Лимиты) -->
+                    <!-- Футер карточки 1 -->
                     <div class="cta-box">
                         <div>
                             <div class="important-note" data-ru="⏺ Количество мест ограничено!" data-en="⏺ Limited number of spots!">⏺ Количество мест ограничено!</div>
@@ -589,6 +589,95 @@
                         </div>
                         <a href="https://t.me/n_isajonov" target="_blank" class="cta-btn">
                             <i class="fab fa-telegram"></i> <span data-ru="Зарегистрироваться (@n_isajonov)" data-en="Register (@n_isajonov)">Зарегистрироваться (@n_isajonov)</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 2-ОЕ СОБЫТИЕ -->
+        <h2 class="section-title" style="margin-top: 60px;" data-ru="Второе Событие" data-en="Second Event">Второе Событие</h2>
+
+        <!-- Проект 2: Movie Evening — ASTRAL -->
+        <div class="featured-project-card">
+            <img src="./img/movie_astral.png" alt="Movie Evening - Astral" class="project-header-img">
+            
+            <div class="project-content">
+                <span class="project-badge">NewBridge Community Movie Night</span>
+                <h3 class="project-title" data-ru="2-ое Событие: Киновечер «Астрал» 🎥" data-en="2nd Event: MOVIE EVENING — ASTRAL 🎥">2-ое Событие: Киновечер «Астрал» 🎥</h3>
+                <p class="project-subtitle" 
+                   data-ru="«Один экран. Одна темная комната. Одна незабываемая ночь. Думаешь, сможешь справиться со тьмой?»" 
+                   data-en="«One screen. One dark room. One unforgettable night. Think you can handle the darkness?»">
+                   «Один экран. Одна темная комната. Одна незабываемая ночь. Думаешь, сможешь справиться со тьмой?»
+                </p>
+
+                <p class="preview-text" 
+                   data-ru="👀 Приводите друзей, занимайте свои места и наслаждайтесь киновечером вместе с NewBridge! Смотрите фильм «Астрал» в 4K разрешении, угощайтесь снэками и оставайтесь на игру в «Мафию» после показа!" 
+                   data-en="👀 Bring your friends, take your seats, and enjoy a movie night with NewBridge! Watch the movie “ASTRAL” in 4K quality, enjoy snacks, and join an optional game of “Mafia” after the movie!">
+                   👀 Приводите друзей, занимайте свои места и наслаждайтесь киновечером вместе с NewBridge! Смотрите фильм «Астрал» в 4K разрешении, угощайтесь снэками и оставайтесь на игру в «Мафию» после показа!
+                </p>
+
+                <!-- Кнопка «Подробнее» 2 -->
+                <button class="toggle-details-btn" data-target="collapsibleContent2">
+                    <i class="fas fa-chevron-down toggle-icon"></i> <span data-ru="Подробная информация" data-en="Detailed Information">Подробная информация</span>
+                </button>
+
+                <!-- Скрытый блок с подробностями 2 -->
+                <div class="collapsible-content" id="collapsibleContent2">
+                    <div class="project-grid">
+                        <!-- Левая колонка: Что вас ждет -->
+                        <div class="info-block">
+                            <h4><i class="fas fa-film" style="color: var(--olive-light);"></i> <span data-ru="🍿 В ваш билет входит:" data-en="🍿 Your ticket includes:">🍿 В ваш билет входит:</span></h4>
+                            <ul class="program-list">
+                                <li data-ru="Показ фильма «АСТРАЛ» в 4K качестве" data-en="A screening of the movie “ASTRAL” 4K">Показ фильма «АСТРАЛ» в 4K качестве</li>
+                                <li data-ru="Снэки, фрукты и напитки" data-en="Snacks, fruit & drinks">Снэки, фрукты и напитки</li>
+                                <li data-ru="Игра в «Мафию» после фильма (по желанию) 🃏" data-en="An optional game of “Mafia” after the movie 🃏">Игра в «Мафию» после фильма (по желанию) 🃏</li>
+                            </ul>
+
+                            <div style="margin-top: 20px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; line-height: 1.6; background-color: rgba(61, 74, 60, 0.05); padding: 15px; border-radius: 8px; border-left: 3px solid var(--gold);">
+                                <strong data-ru="‼️ Интересная новость по Снэк-Пакетам 🍿" data-en="‼️ Interesting news on Snack-Packs 🍿">‼️ Интересная новость по Снэк-Пакетам 🍿</strong><br>
+                                <span data-ru="Снэк-пакеты будут разными на выбор! Ассортимент почти одинаковый, но в некоторых по выбору будет напиток на выбор (Cola, Fanta, Fuse Tea и т.д.) и чипсы с разными вкусами! При входе и занятии места список будет проверяться, и каждый лично в руки получит свой Снэк-Пакет." 
+                                      data-en="Snack packs will vary by choice! The assortment is mostly similar, but some packs allow a choice of drink (Cola, Fanta, Fuse Tea, etc.) and different chip flavors! Upon entry, the list will be verified and everyone will receive their Snack Pack personally.">
+                                      Снэк-пакеты будут разными на выбор! Ассортимент почти одинаковый, но в некоторых по выбору будет напиток на выбор (Cola, Fanta, Fuse Tea и т.д.) и чипсы с разными вкусами! При входе и занятии места список будет проверяться, и каждый лично в руки получит свой Снэк-Пакет.
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Правая колонка: Организационные детали -->
+                        <div class="info-block">
+                            <h4><i class="fas fa-clock" style="color: var(--olive-light);"></i> <span data-ru="Детали сеанса" data-en="Event Details">Детали сеанса</span></h4>
+                            <ul class="details-list">
+                                <li><strong data-ru="🗓 Дата:" data-en="🗓 Date:">🗓 Дата:</strong> <span data-ru="6 ноября 2026 г." data-en="November 6, 2026">6 ноября 2026 г.</span></li>
+                                <li><strong data-ru="🕔 Время:" data-en="🕔 Time:">🕔 Время:</strong> 17:20 – 19:55</li>
+                                <li><strong data-ru="📍 Локация:" data-en="📍 Location:">📍 Локация:</strong> <span data-ru="Блок B — Кинозал (УМЭД / UWED)" data-en="Block B — Cinema Hall (UWED)">Блок B — Кинозал (УМЭД / UWED)</span></li>
+                                <li><strong data-ru="⏳ Дедлайн регистрации:" data-en="⏳ Registration Deadline:">⏳ Дедлайн регистрации:</strong> <span data-ru="5 ноября" data-en="November 5th">5 ноября</span></li>
+                            </ul>
+
+                            <!-- Цена и места -->
+                            <div class="price-box">
+                                <div>
+                                    <span style="font-size: 0.9rem; color: var(--olive-medium);" data-ru="Входной билет:" data-en="Entry Ticket:">Входной билет:</span>
+                                    <div class="price-amount">25,000 UZS</div>
+                                </div>
+                                <hr style="border: none; border-top: 1px solid var(--gold); margin: 10px 0;">
+                                <div style="font-size: 0.85rem; line-height: 1.6; color: var(--badge-bg); font-weight: 600;">
+                                    <span data-ru="☝️ Лимит мест — всего 200 человек! Спешите, 40% мест уже забронировано!" data-en="☝️ The seat limit of only 200 people, hurry up 40% of places is already pre-occupied!">
+                                        ☝️ Лимит мест — всего 200 человек! Спешите, 40% мест уже забронировано!
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Футер карточки 2 -->
+                    <div class="cta-box">
+                        <div>
+                            <div class="important-note" data-ru="⏺ До встречи в кинотеатре… если осмелишься." data-en="⏺ See you in the cinema… if you dare.">⏺ До встречи в кинотеатре… если осмелишься.</div>
+                            <div class="important-note" data-ru="⏺ Дедлайн: 5 Ноября!" data-en="⏺ Deadline: 5th November!">⏺ Дедлайн: 5 Ноября!</div>
+                        </div>
+                        <a href="https://t.me/Asian_Zlatovlaska" target="_blank" class="cta-btn">
+                            <i class="fab fa-telegram"></i> <span data-ru="Связаться / Забронировать (@Asian_Zlatovlaska)" data-en="Contact / Book (@Asian_Zlatovlaska)">Связаться (@Asian_Zlatovlaska)</span>
                         </a>
                     </div>
                 </div>
@@ -636,30 +725,33 @@
             });
         });
 
-        // Кнопка «Batafsil ma'lumot» (Подробнее)
-        const toggleDetailsBtn = document.getElementById('toggleDetailsBtn');
-        const collapsibleContent = document.getElementById('collapsibleContent');
-        const toggleIcon = document.getElementById('toggleIcon');
+        // Кнопки раскрытия деталей (Подробнее) для нескольких карточек
+        const toggleButtons = document.querySelectorAll('.toggle-details-btn');
+        let currentLang = 'ru';
 
-        toggleDetailsBtn.addEventListener('click', () => {
-            collapsibleContent.classList.toggle('open');
-            const isOpened = collapsibleContent.classList.contains('open');
-            const currentLang = document.documentElement.lang;
+        toggleButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+                const icon = btn.querySelector('.toggle-icon');
 
-            if (isOpened) {
-                toggleDetailsBtn.innerHTML = currentLang === 'ru' 
-                    ? '<i class="fas fa-chevron-up"></i> Скрыть' 
-                    : '<i class="fas fa-chevron-up"></i> Yшириш (Hide)';
-            } else {
-                toggleDetailsBtn.innerHTML = currentLang === 'ru'
-                    ? '<i class="fas fa-chevron-down"></i> Подробная информация'
-                    : '<i class="fas fa-chevron-down"></i> Batafsil ma\'lumot';
-            }
+                content.classList.toggle('open');
+                const isOpened = content.classList.contains('open');
+
+                if (isOpened) {
+                    btn.innerHTML = currentLang === 'ru' 
+                        ? '<i class="fas fa-chevron-up toggle-icon"></i> Скрыть' 
+                        : '<i class="fas fa-chevron-up toggle-icon"></i> Hide';
+                } else {
+                    btn.innerHTML = currentLang === 'ru'
+                        ? '<i class="fas fa-chevron-down toggle-icon"></i> Подробная информация'
+                        : '<i class="fas fa-chevron-down toggle-icon"></i> Detailed Information';
+                }
+            });
         });
 
         // Переключение языка RU / EN
         const langBtn = document.getElementById('langBtn');
-        let currentLang = 'ru';
 
         langBtn.addEventListener('click', () => {
             currentLang = currentLang === 'ru' ? 'en' : 'ru';
@@ -670,17 +762,22 @@
                 element.textContent = element.getAttribute(`data-${currentLang}`);
             });
 
-            // Обновляем текст кнопки деталей в зависимости от открытого/закрытого состояния
-            const isOpened = collapsibleContent.classList.contains('open');
-            if (isOpened) {
-                toggleDetailsBtn.innerHTML = currentLang === 'ru' 
-                    ? '<i class="fas fa-chevron-up"></i> Скрыть' 
-                    : '<i class="fas fa-chevron-up"></i> Hide';
-            } else {
-                toggleDetailsBtn.innerHTML = currentLang === 'ru'
-                    ? '<i class="fas fa-chevron-down"></i> Подробная информация'
-                    : '<i class="fas fa-chevron-down"></i> Batafsil ma\'lumot';
-            }
+            // Обновляем текст всех кнопок деталей
+            toggleButtons.forEach(btn => {
+                const targetId = btn.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+                const isOpened = content.classList.contains('open');
+
+                if (isOpened) {
+                    btn.innerHTML = currentLang === 'ru' 
+                        ? '<i class="fas fa-chevron-up toggle-icon"></i> Скрыть' 
+                        : '<i class="fas fa-chevron-up toggle-icon"></i> Hide';
+                } else {
+                    btn.innerHTML = currentLang === 'ru'
+                        ? '<i class="fas fa-chevron-down toggle-icon"></i> Подробная информация'
+                        : '<i class="fas fa-chevron-down toggle-icon"></i> Detailed Information';
+                }
+            });
         });
     </script>
 
